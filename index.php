@@ -1,6 +1,7 @@
 <?php
 include "global/config.php";
 include "global/conexion.php";
+include "carrito.php";
 ?>
 
 <!DOCTYPE html>
@@ -39,7 +40,7 @@ include "global/conexion.php";
     <div class="container"></div>
     <br>
     <div class=" alert alert-success">
-        Mensaje...
+        <?php echo $mensaje; ?>
         <a href="#" class="badge badge-success">Ver Carrito</a>
     </div>
 
@@ -69,10 +70,16 @@ include "global/conexion.php";
                         <h5 class="card-title">LPS <?php echo $producto['precioVenta']; ?></h5>
 
                         <form action="" method="post">
+                            /*Aqui se mandan los datos al carrito mas se encriptan*/
+                            <input type="text" name="ID" id="ID" value="<?php echo openssl_encrypt($producto['codProducto'], COD, KEY); ?>">
+                            <input type="text" name="Nombre" id="Nombre" value="<?php echo openssl_encrypt($producto['nombreProducto'], COD, KEY); ?>">
+                            <input type="text" name="Precio" id="Precio" value="<?php echo openssl_encrypt($producto['precioVenta'], COD, KEY); ?>">
+                            <input type="text" name="Cantidad" id="Cantidad" value="<?php echo openssl_encrypt(1, COD, KEY); ?>">
+
                             <button class="btn btn-primary"
                                 name="btnAccion"
                                 value="Agregar"
-                                type="submit">Agregar al carritoa
+                                type="submit">Agregar al carrito
                             </button>
                         </form>
                     </div>
