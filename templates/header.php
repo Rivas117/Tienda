@@ -23,7 +23,7 @@
                     <a class="nav-link" href="index.php">Inicio</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Carrito(0)</a>
+                    <a class="nav-link" href="showCarrito.php">Carrito(<?php echo (empty($_SESSION["CARRITO"])) ? 0 : count($_SESSION["CARRITO"]); ?>)</a>
                 </li>
             </ul>
         </div>

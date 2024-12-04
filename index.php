@@ -4,11 +4,14 @@ include "global/conexion.php";
 include "carrito.php";
 include "templates/header.php";
 ?>
+
 <br>
-<div class="alert alert-success">
-    <?php echo $mensaje; ?>
-    <a href="#" class="badge badge-success">Ver Carrito</a>
-</div>
+<?php if ($mensaje != "") { ?>
+    <div class="alert alert-success">
+        <?php echo $mensaje; ?>
+        <a href="showCarrito.php" class="badge badge-success">Ver Carrito</a>
+    </div>
+<?php } ?>
 
 
 <div class="row">
